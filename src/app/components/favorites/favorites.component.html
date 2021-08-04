@@ -1,0 +1,25 @@
+<!-- show all favoites -->
+<div *ngFor="let i of arrFavorites" style="display: inline-block;" class="col-lg-2 col-md-3 col-sm-4">
+  <h5> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill"
+      viewBox="0 0 16 16">
+      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+    </svg> {{i.City}}</h5>
+  <h5>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-half"
+      viewBox="0 0 16 16">
+      <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z" />
+      <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z" />
+    </svg>
+    {{i.Temperature.Metric.Value}} {{i.Temperature.Metric.Unit}}
+  </h5>
+  <h5>
+    <img src="../../../assets/pictures/{{i.WeatherIcon}}.jpg" class="img-responsive" style="width:10% ;height:10%; display: inline-block ;"
+      alt="Image"> {{i.WeatherText}}</h5>
+  <button (click)="showInHome(i)">5 day forecast</button>
+</div>
+
+<!-- if there are no favorites -->
+<div *ngIf="arrFavorites.length == 0" class="col-lg-4 col-sm-6">
+  <h3 style="color: rgb(245, 184, 105) ;">Your favorites list is empty</h3>
+  <img src="../../../assets/pictures/blankF.jpg" class="img-responsive" style="width:50% ;height:50%; " alt="Image">
+</div>
